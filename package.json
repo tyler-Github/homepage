@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bunx serve src/",
+    "dev": "bun dev.ts",
     "build": "bun build.ts"
   },
   "dependencies": {
