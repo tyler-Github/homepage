@@ -1,0 +1,30 @@
+{
+    "projects": [
+        {
+            "name": "ZeroLimits.dev",
+            "url": "https://zerolimits.dev",
+            "source": "https://github.com/noClaps/ZeroLimits.dev"
+        },
+        {
+            "name": "The Blog of Random",
+            "url": "https://blog.zerolimits.dev",
+            "source": "https://github.com/noClaps/blog"
+        },
+        {
+            "name": "Aperturic Focus",
+            "url": "https://gallery.zerolimits.dev",
+            "source": "https://github.com/noClaps/gallery"
+        },
+        {
+            "name": "Themes",
+            "source": "https://github.com/noClaps/themes"
+        }
+    ],
+    "contact": [
+        {
+            "name": "Email",
+            "content": "contact@zerolimits.dev",
+            "url": "mailto:contact@zerolimits.dev"
+        }
+    ]
+}
