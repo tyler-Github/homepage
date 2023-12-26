@@ -12,5 +12,12 @@ Bun.write("./dist/style.css", code);
 // Build HTML
 Bun.write("./dist/index.html", Bun.file("./src/index.html"));
 
+// Build JS
+Bun.build({
+    entrypoints: ["./src/script.js"],
+    outdir: "dist",
+    minify: true
+});
+
 // Copy favicon
 Bun.write("./dist/favicon.ico", Bun.file("./src/favicon.ico"));
