@@ -1,0 +1,53 @@
+/* Root */
+:root {
+    font-family: ui-monospace, monospace;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+}
+
+body {
+    padding: 0 1rem;
+    margin: 0;
+}
+
+/* Input */
+main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1ch;
+    position: sticky;
+    bottom: 0;
+    padding-bottom: 0.5rem;
+    background-color: black;
+    color: white;
+}
+
+input {
+    border: none;
+    font-family: ui-monospace, monospace;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+/* Log */
+p,
+dl {
+    margin: 0;
+    line-height: 2;
+    min-height: 2rem;
+}
+
+#log {
+    margin: 0.5rem 0;
+}
+
+a {
+    color: white;
+}

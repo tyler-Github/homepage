@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The ZeroLimits.dev homepage">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+    <title>ZeroLimits.dev</title>
+</head>
+
+<body>
+    <div id="log">
+    </div>
+    <main>
+        <label for="prompt">></label>
+        <input type="text" name="prompt" autofocus>
+    </main>
+
+    <script>
+        const input = document.querySelector("input");
+        const main = document.querySelector("main");
+        const log = document.getElementById("log");
+
+        log.insertAdjacentHTML("beforeend", about());
+        log.insertAdjacentHTML("beforeend", help(""));
+
+        document.addEventListener("click", () => input.focus());
+
+        input.onkeyup = (e) => {
+            if (e.key === "Enter") {
+                const cmd = input.value;
+
+                if (cmd === "clear") {
+                    log.innerHTML = "";
+                    input.value = "";
+                    return;
+                };
+
+                let returnVal = "<p>Not a valid command</p>";
+
+                if (cmd.startsWith("help")) returnVal = help(cmd.split(" ")[1]);
+                if (cmd === "about") returnVal = about();
+                if (cmd.startsWith("ls")) returnVal = ls(cmd.split(" ")[1]);
+                if (cmd === "") returnVal = "";
+
+                log.insertAdjacentHTML("beforeend", `<p>> ${ input.value }</p>`);
+                log.insertAdjacentHTML("beforeend", returnVal);
+
+                scrollTo(0, document.body.scrollHeight);
+                input.value = "";
+            }
+        };
+
+        function help(arg) {
+            const args = {
+                help: `<dt>help</dt><dd>Display this help menu</dd>`,
+                clear: `<dt>clear</dt><dd>Clear the screen</dd>`,
+                about: `<dt>about</dt><dd>Show details about the site</dd>`,
+                ls: `
+                    <dt>ls</dt>
+                    <dd>
+                        <dl>
+                            <dt>projects</dt>
+                            <dd>Show a list of projects that I work on</dd>
+                            <dt>contact</dt>
+                            <dd>Show a list of ways to contact me</dd>
+                        </dl>
+                    </dd>
+                    `
+            };
+
+            if (arg) {
+                return `<dl>${ args[arg] }</dl>`;
+            }
+
+            return `
+            <p>Commands</p>
+        
+            <dl>
+                ${ Object.values(args).join("") }
+            </dl>`;
+        }
+
+        function about() {
+            return `<p>ZeroLimits.dev - Made by <a href="https://github.com/noClaps">noClaps</a></p>`;
+        }
+
+        function ls(arg) {
+            const args = {
+                projects: `
+                    <p>The Blog of Random - <a href="https://blog.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/blog">Source</a></p>
+                    <p>Aperturic Focus - <a href="https://gallery.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/gallery">Source</a></p>
+                `,
+                contact: `
+                    <p>Email - <a href="mailto:contact@zerolimits.dev">contact@zerolimits.dev</a></p>
+                `
+            };
+
+            if (!arg) {
+                let output = "<dl>";
+                for (const val in args) {
+                    output += `<dt>${ val }</dt>`;
+                    output += `<dd>${ args[val] }<dd>`;
+                }
+                output += "</dl>"
+
+                return output;
+            }
+
+            return args[arg];
+        }
+    </script>
+</body>
+
+</html>
