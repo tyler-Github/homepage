@@ -14,7 +14,7 @@ Bun.write("./dist/index.html", Bun.file("./src/index.html"));
 
 // Build JS
 Bun.build({
-    entrypoints: ["./src/script.js"],
+    entrypoints: ["./src/script.ts"],
     outdir: "dist",
     minify: true
 });

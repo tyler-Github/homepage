@@ -1,7 +1,9 @@
+/// <reference lib="dom" />
+
 import data from "./data.json";
 
-const input = document.querySelector("input");
-const log = document.getElementById("log");
+const input = document.querySelector("input")!;
+const log = document.getElementById("log")!;
 
 log.insertAdjacentHTML("beforeend", about());
 log.insertAdjacentHTML("beforeend", help(""));
@@ -33,8 +35,8 @@ input.onkeyup = (e) => {
     }
 };
 
-function help(arg) {
-    const args = {
+function help(arg: string | undefined) {
+    const args: { [index: string]: string; } = {
         help: `<dt>help</dt><dd>Display this help menu</dd>`,
         clear: `<dt>clear</dt><dd>Clear the screen</dd>`,
         about: `<dt>about</dt><dd>Show details about the site</dd>`,
@@ -55,14 +57,14 @@ function about() {
     return `<p>ZeroLimits.dev - Made by <a href="https://github.com/noClaps">noClaps</a></p>`;
 }
 
-function ls(arg) {
-    const args = {
+function ls(arg: string | undefined) {
+    const args: { [index: string]: string; } = {
         projects: data.projects.map(project => (
             `<p>${ project.name } - ${ project.url ? `<a href=${ project.url }>Link</a> - ` : "" } <a href="${ project.source }">Source</a></p>`
         )).join(""),
         contact: data.contact.map(c => (
             `<p>${ c.name } - <a href="${ c.url }">${ c.content }</a></p>`
-        ))
+        )).join("")
     };
 
     if (!arg) {

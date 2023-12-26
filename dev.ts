@@ -1,7 +1,7 @@
 console.log("Development server started at http://localhost:3000")
 
 const script = await Bun.build({
-    entrypoints: ["./src/script.js"],
+    entrypoints: ["./src/script.ts"],
     minify: true
 });
 const scriptText = script.outputs[0];
