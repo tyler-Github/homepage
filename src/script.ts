@@ -12,7 +12,7 @@ document.addEventListener("click", () => input.focus());
 
 input.onkeyup = (e) => {
     if (e.key === "Enter") {
-        const cmd = input.value;
+        const cmd = input.value.toLowerCase();
 
         if (cmd === "clear") {
             log.innerHTML = "";
