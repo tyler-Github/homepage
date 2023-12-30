@@ -12,7 +12,7 @@ document.addEventListener("click", () => input.focus());
 
 input.onkeyup = (e) => {
     if (e.key === "Enter") {
-        const cmd = input.value.toLowerCase();
+        const cmd = input.value.toLowerCase().trim();
 
         if (cmd === "clear") {
             log.innerHTML = "";
@@ -20,7 +20,7 @@ input.onkeyup = (e) => {
             return;
         };
 
-        let returnVal = "<p>Not a valid command</p>";
+        let returnVal = `<p>Not a valid command. Type "help" to see all available commands.</p>`;
 
         if (cmd.startsWith("help")) returnVal = help(cmd.split(" ")[1]);
         if (cmd === "about") returnVal = about();
