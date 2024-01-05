@@ -1,4 +1,4 @@
-console.log("Development server started at http://localhost:3000")
+console.log("Development server started at http://localhost:3000");
 
 const script = await Bun.build({
     entrypoints: ["./src/script.ts"],
