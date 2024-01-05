@@ -7,8 +7,8 @@ import ls from "./bin/ls";
 const input = document.querySelector("input")!;
 const log = document.getElementById("log")!;
 
-log.insertAdjacentHTML("beforeend", about());
-log.insertAdjacentHTML("beforeend", `<pre>Type "help" to see all available commands.</pre>`);
+log.innerHTML += `${ about() }\n`;
+log.innerHTML += `Type "help" to see all available commands.\n`;
 
 document.addEventListener("click", () => input.focus());
 
@@ -22,15 +22,15 @@ input.onkeyup = (e) => {
             return;
         };
 
-        let returnVal = `<pre>Not a valid command. Type "help" to see all available commands.</pre>`;
+        let returnVal = `Not a valid command. Type "help" to see all available commands.\n`;
 
         if (cmd.startsWith("help")) returnVal = help(cmd.split(" ")[1]);
         if (cmd === "about") returnVal = about();
         if (cmd.startsWith("ls")) returnVal = ls(cmd.split(" ")[1]);
         if (cmd === "") returnVal = "";
 
-        log.insertAdjacentHTML("beforeend", `<pre>> ${ input.value }</pre>`);
-        log.insertAdjacentHTML("beforeend", returnVal);
+        log.innerHTML += `> ${ input.value }\n`;
+        log.innerHTML += `${ returnVal }\n`;
 
         scrollTo(0, document.body.scrollHeight);
         input.value = "";
