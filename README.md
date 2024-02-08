@@ -20,7 +20,3 @@ The ZeroLimits.dev homepage
     make build
     ```
     This will place the built files in the `dist/` directory.
-
-## License
-
-All of the code in this repository is licensed under the [0BSD license](./LICENSE).
