@@ -1,6 +1,6 @@
 build:
 	@echo "Building..."
-	@mkdir -p ./dist 
+	@mkdir -p ./dist
 	@cp ./src/style.css ./dist/style.css
 	@cp ./src/index.html ./dist/index.html
 	@cp ./src/favicon.ico ./dist/favicon.ico
