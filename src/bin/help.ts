@@ -1,16 +1,18 @@
 export default function help(arg: string | undefined) {
   const html = `
 COMMANDS
-  help         Display this help menu
-  clear        Clear the screen
   about        Show details about the site
-  ls           List sections
+  cd           Change directory
+  clear        Clear the screen
+  help         Display this help menu
+  ls           List contents of directory
 `;
 
   const args: { [index: string]: string } = {
-    help: `help           Display this help menu`,
-    clear: `clear          Clear the screen`,
     about: `about          Show details about the site`,
+    cd: `cd           Change directory`,
+    clear: `clear          Clear the screen`,
+    help: `help           Display this help menu`,
     ls: `ls             List sections`,
   };
 

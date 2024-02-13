@@ -3,15 +3,20 @@
 import help from "./bin/help";
 import about from "./bin/about";
 import ls from "./bin/ls";
+import cd from "./bin/cd";
 
 const history: string[] = [];
 let currentPos = history.length - 1;
 
 const input = document.querySelector("input")!;
 const log = document.getElementById("log")!;
+const cwdElem = document.querySelector("#cwd")!;
 
 log.innerHTML += `${about()}\n`;
 log.innerHTML += `Type "help" to see all available commands.\n`;
+
+let cwd = "/";
+cwdElem.innerHTML = cwd;
 
 document.addEventListener("click", () => input.focus());
 
@@ -45,15 +50,33 @@ input.onkeyup = (e) => {
       return;
     }
 
-    let returnVal = `Not a valid command. Type "help" to see all available commands.\n`;
+    let returnVal = `Not a valid command. Type "help" to see all available commands.`;
 
-    if (cmd.startsWith("help")) returnVal = help(cmd.split(" ")[1]);
+    const originalCwd = cwd;
+    if (cmd.startsWith("cd ") || cmd === "cd") {
+      cwd = cd(cmd.split(" ")[1], cwd);
+
+      if (!cwd.endsWith("/")) {
+        returnVal = cwd;
+        cwd = originalCwd;
+      } else {
+        cwdElem.innerHTML = cwd;
+        returnVal = "";
+      }
+    }
+
+    if (cmd.startsWith("help ") || cmd === "help")
+      returnVal = help(cmd.split(" ")[1]);
+
     if (cmd === "about") returnVal = about();
-    if (cmd.startsWith("ls")) returnVal = ls(cmd.split(" ")[1]);
+
+    if (cmd.startsWith("ls ") || cmd === "ls")
+      returnVal = ls(cmd.split(" ")[1], cwd);
+
     if (cmd === "") returnVal = "";
 
-    log.innerHTML += `> ${input.value}\n`;
-    log.innerHTML += `${returnVal}\n`;
+    log.innerHTML += `${originalCwd} > ${input.value}\n`;
+    log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
 
     scrollTo(0, document.body.scrollHeight);
     input.value = "";

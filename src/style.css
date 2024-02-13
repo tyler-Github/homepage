@@ -50,3 +50,8 @@ pre {
 a {
     color: white;
 }
+
+/* CWD */
+#cwd {
+    margin-right: 1ch;
+}

@@ -1,27 +1,32 @@
-export default function ls(arg: string | undefined) {
-  const html = `
-OPTIONS:
-  projects     ZeroLimits.dev - <a href="https://zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/ZeroLimits.dev">Source</a>
-               The Blog of Random - <a href="https://blog.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/blog">Source</a>
-               Aperturic Focus - <a href="https://gallery.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/gallery">Source</a>
-               random - <a href="https://github.com/noClaps/random">Source</a>
-  contact      Email - <a href="mailto:contact@zerolimits.dev">contact@zerolimits.dev</a>
-`;
-  const args: { [index: string]: string } = {
-    projects: `
-ZeroLimits.dev - <a href="https://zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/ZeroLimits.dev">Source</a>
-The Blog of Random - <a href="https://blog.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/blog">Source</a>
-Aperturic Focus - <a href="https://gallery.zerolimits.dev">Link</a> - <a href="https://github.com/noClaps/gallery">Source</a>
-random - <a href="https://github.com/noClaps/random">Source</a>
-`,
-    contact: `
-Email - <a href="mailto:contact@zerolimits.dev">contact@zerolimits.dev</a>
-`,
-  };
+import directory from "../directory.json";
 
-  if (!arg) {
-    return html.trim();
+export default function ls(arg: string = "", cwd: string) {
+  if (cwd === "/") {
+    if (!arg || arg.match(/^(\.\.?)?\/?$/))
+      return Object.keys(directory["/"]).join("\n");
+
+    if (arg.match(/^(\.?\/)?projects\/?$/)) return ls("", "/projects/");
+
+    if (arg.match(/^(\.?\/)?contact\/?$/)) return ls("", "/contact/");
   }
 
-  return args[arg].trim();
+  if (cwd === "/projects/") {
+    if (!arg || arg === "." || arg.match(/^(\.\.)?\/projects\/?$/))
+      return Object.values(directory["/"]["projects/"]).join("\n");
+
+    if (arg.match(/^(\.\.)?\/?$/)) return ls("", "/");
+
+    if (arg.match(/^(\.\.)?\/contact\/?$/)) return ls("", "/contact/");
+  }
+
+  if (cwd === "/contact/") {
+    if (!arg || arg === "." || arg.match(/^(\.\.)?\/contact\/?$/))
+      return Object.values(directory["/"]["contact/"]).join("\n");
+
+    if (arg.match(/^(\.\.)?\/?$/)) return ls("", "/");
+
+    if (arg.match(/^(\.\.)?\/projects\/?$/)) return ls("", "/projects/");
+  }
+
+  return `${arg}: Directory not found`;
 }
