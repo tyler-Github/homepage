@@ -5,18 +5,23 @@ The ZeroLimits.dev homepage
 ## Build instructions
 
 1.  Clone the repository.
+
     ```sh
     git clone https://github.com/noClaps/ZeroLimits.dev.git
     cd ZeroLimits.dev
     ```
 
-2.  Install [Bun](https://bun.sh) if you don't have it already, and start the development server.
+2.  Install dependencies and start the development server.
+
     ```sh
-    make dev
+    bun install
+    bun dev
     ```
 
-3.  Build the site. If you've already run `make dev`, then this command has already been run, and you can simply access the files from the `dist/` directory.
+3.  Build the site.
+
     ```sh
-    make build
+    bun run build
     ```
+
     This will place the built files in the `dist/` directory.
