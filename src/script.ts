@@ -4,6 +4,7 @@ import help from "./bin/help";
 import about from "./bin/about";
 import ls from "./bin/ls";
 import cd from "./bin/cd";
+import fallback from "./bin/fallback";
 
 const history: string[] = [];
 let currentPos = history.length - 1;
@@ -50,7 +51,7 @@ input.onkeyup = (e) => {
       return;
     }
 
-    let returnVal = `Not a valid command. Type "help" to see all available commands.`;
+    let returnVal = fallback(cmd);
 
     const originalCwd = cwd;
     if (cmd.startsWith("cd ") || cmd === "cd") {
