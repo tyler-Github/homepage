@@ -1,8 +1,4 @@
-import directory from "../directory.json";
-
 export default function cd(arg: string = "", cwd: string) {
-  const path = arg.split("/");
-
   if (cwd === "/") {
     if (!arg || arg === "." || arg === ".." || arg === "/") return "/";
 
