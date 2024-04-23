@@ -17,7 +17,7 @@ async function serve() {
 }
 
 serve().then(() => {
-  console.log("Server running on http://localhost:3000.");
+  console.log("Server running on http://localhost:3000");
 });
 
 watch(`${import.meta.dir}/../src`, { recursive: true }, (event, filename) => {
