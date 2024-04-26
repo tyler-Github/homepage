@@ -1,14 +1,21 @@
-export default function help(arg: string | undefined) {
+export default function help(args: string[]) {
+  if (args.length > 1) {
+    return `Incorrect usage of the help command. Use "help help" to see how to use this command.`;
+  }
+
+  const arg = args[0];
+
   const html = `
 COMMANDS
-  about            Show details about the site
-  cd [directory]   Change directory
-  clear            Clear the screen
-  help [command]   Display help menu
-  ls [directory]   List contents of directory
+  about                   Show details about the site
+  cd [directory]          Change directory
+  clear                   Clear the screen
+  color [color] [format]  Convert colors from one format to another
+  help [command]          Display help menu
+  ls [directory]          List contents of directory
 `;
 
-  const args: { [index: string]: string } = {
+  const commands: { [index: string]: string } = {
     about: `
 NAME: about – Show details about the site
 USAGE: about
@@ -24,6 +31,15 @@ ARGUMENTS:
     clear: `
 NAME: clear – Clear the screen
 USAGE: clear
+`,
+    color: `
+NAME: color – Convert colors from one format to another
+USAGE: color [color] [format]
+ARGUMENTS:
+  color         The color that you would like to convert to another format.
+                This can be in any existing format, such as hex, RGB, LCH, etc.
+  format        The format that you would like to convert to. This can be in
+                any existing format, such as hex, RGB, LCH, etc.
 `,
     help: `
 NAME: help – Display help menu
@@ -44,8 +60,8 @@ ARGUMENTS:
 `,
   };
 
-  if (arg && args[arg]) {
-    return args[arg].trim();
+  if (arg && commands[arg]) {
+    return commands[arg].trim();
   }
 
   return html.trim();

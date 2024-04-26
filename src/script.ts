@@ -1,10 +1,10 @@
 /// <reference lib="dom" />
 
-import help from "./bin/help";
 import about from "./bin/about";
-import ls from "./bin/ls";
 import cd from "./bin/cd";
 import fallback from "./bin/fallback";
+import help from "./bin/help";
+import ls from "./bin/ls";
 
 const history: string[] = [];
 let currentPos = history.length - 1;
@@ -20,6 +20,18 @@ let cwd = "/";
 cwdElem.innerHTML = cwd;
 
 document.addEventListener("click", () => input.focus());
+
+const Commands = {
+  about,
+  cd,
+  clear() {
+    log.innerHTML = "";
+    input.value = "";
+  },
+  help,
+  ls,
+  fallback,
+};
 
 input.onkeyup = (e) => {
   if (e.key === "ArrowUp") {
@@ -51,30 +63,32 @@ input.onkeyup = (e) => {
       return;
     }
 
-    let returnVal = fallback(cmd);
-
+    let returnVal: string = "";
+    const command = cmd.split(" ")[0];
+    const args = cmd.split(" ").slice(1);
     const originalCwd = cwd;
-    if (cmd.startsWith("cd ") || cmd === "cd") {
-      cwd = cd(cmd.split(" ")[1], cwd);
 
-      if (!cwd.endsWith("/")) {
-        returnVal = cwd;
-        cwd = originalCwd;
-      } else {
-        cwdElem.innerHTML = cwd;
-        returnVal = "";
+    if (Object.hasOwn(Commands, command)) {
+      if (command === "about") returnVal = Commands.about();
+      if (command === "cd") {
+        cwd = Commands.cd(args, cwd);
+        if (!cwd.endsWith("/")) {
+          returnVal = cwd;
+          cwd = originalCwd;
+        } else {
+          cwdElem.innerHTML = cwd;
+          returnVal = "";
+        }
       }
+      if (command === "clear") {
+        Commands.clear();
+        return;
+      }
+      if (command === "help") returnVal = Commands.help(args);
+      if (command === "ls") returnVal = Commands.ls(args, cwd);
+    } else {
+      returnVal = Commands.fallback(cmd);
     }
-
-    if (cmd.startsWith("help ") || cmd === "help")
-      returnVal = help(cmd.split(" ")[1]);
-
-    if (cmd === "about") returnVal = about();
-
-    if (cmd.startsWith("ls ") || cmd === "ls")
-      returnVal = ls(cmd.split(" ")[1], cwd);
-
-    if (cmd === "") returnVal = "";
 
     log.innerHTML += `${originalCwd} > ${input.value}\n`;
     log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;

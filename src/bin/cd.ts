@@ -1,4 +1,10 @@
-export default function cd(arg: string = "", cwd: string) {
+export default function cd(args: string[], cwd: string) {
+  if (args.length > 1) {
+    return `Incorrect usage of the cd command. Use "help cd" to see how to use this command.`;
+  }
+
+  const arg = args[0];
+
   if (cwd === "/") {
     if (!arg || arg === "." || arg === ".." || arg === "/") return "/";
 
