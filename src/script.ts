@@ -2,6 +2,7 @@
 
 import about from "./bin/about";
 import cd from "./bin/cd";
+import color from "./bin/color";
 import fallback from "./bin/fallback";
 import help from "./bin/help";
 import ls from "./bin/ls";
@@ -28,6 +29,7 @@ const Commands = {
     log.innerHTML = "";
     input.value = "";
   },
+  color,
   help,
   ls,
   fallback,
@@ -84,6 +86,7 @@ input.onkeyup = (e) => {
         Commands.clear();
         return;
       }
+      if (command === "color") returnVal = Commands.color(args);
       if (command === "help") returnVal = Commands.help(args);
       if (command === "ls") returnVal = Commands.ls(args, cwd);
     } else {
