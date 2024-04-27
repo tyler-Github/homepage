@@ -1,9 +1,8 @@
 FROM oven/bun
 
-ARG RAILWAY_SERVICE_ID
 
 COPY package.json bun.lockb ./
-RUN --mount=type=cache,id=s/$RAILWAY_SERVICE_ID-/root/bun,target=/root/.bun bun install
+RUN --mount=type=cache,id=s/ec5c78c4-17ac-446a-9496-fd7525eca9ec-/root/bun,target=/root/.bun bun install
 
 COPY . ./
 RUN bun run build
