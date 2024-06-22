@@ -1,4 +1,4 @@
-Bun.serve({
+const server = Bun.serve({
   fetch(req) {
     const path = new URL(req.url).pathname;
 
@@ -9,4 +9,4 @@ Bun.serve({
   reusePort: true,
 });
 
-console.log("Server running on http://localhost:3000");
+console.log(`Server running on ${server.url}`);
