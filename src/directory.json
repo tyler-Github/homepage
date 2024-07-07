@@ -8,7 +8,8 @@
       "znak": "Znak - <a href=\"https://github.com/noClaps/znak\">Source</a>",
       "lsdeps": "lsdeps - <a href=\"https://github.com/noClaps/lsdeps\">Source</a>",
       "discuit-docs": "Discuit API Documentation - <a href=\"https://docs.discuit.net\">Link</a> - <a href=\"https://github.com/discuitnet/docs\">Source</a>",
-      "news": "News - <a href=\"https://news.zerolimits.dev\">Link</a> - <a href=\"https://github.com/noClaps/news\">Source</a>"
+      "news": "News - <a href=\"https://news.zerolimits.dev\">Link</a> - <a href=\"https://github.com/noClaps/news\">Source</a>",
+      "recipes": "Recipes - <a href=\"https://recipes.zerolimits.dev\">Link</a> - <a href=\"https://github.com/noClaps/recipes\">Source</a>"
     },
     "contact/": {
       "email": "Email - <a href=\"mailto:contact@zerolimits.dev\">contact@zerolimits.dev</a>",
