@@ -1,12 +1,12 @@
 import Color from "colorjs.io";
 
 export default function color(args: string[]) {
-  if (args.length !== 2) {
+  if (args.length < 2) {
     return `Incorrect usage of the color command. Use "help color" to see how to use this command.`;
   }
 
-  const initialColor = args[0];
-  const outputFormat = args[1];
+  const initialColor = args.slice(0, -1).join(" ");
+  const outputFormat = args[args.length - 1];
 
   try {
     if (outputFormat === "hex") {

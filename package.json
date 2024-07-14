@@ -10,7 +10,7 @@
     "@types/bun": "^1.1.6"
   },
   "peerDependencies": {
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   },
   "dependencies": {
     "colorjs.io": "^0.5.2"
