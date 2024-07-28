@@ -2,15 +2,14 @@
   "name": "zerolimits.dev",
   "type": "module",
   "scripts": {
-    "build": "bun scripts/build.ts",
-    "dev": "bun scripts/dev.ts",
-    "start": "bun scripts/start.ts"
+    "build": "chmod +x scripts/build && ./$_",
+    "dev": "bun scripts/dev.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.1.6"
   },
   "peerDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "colorjs.io": "^0.5.2"

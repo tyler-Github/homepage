@@ -1,26 +1,35 @@
-import { $ } from "bun";
-import { watch } from "fs";
+import type { Serve } from "bun";
+import { watch } from "node:fs";
 
-async function serve() {
-  await $`bun run build`;
+const serverOptions: Serve = {
+  async fetch({ url }) {
+    const path = new URL(url).pathname;
 
-  Bun.serve({
-    fetch(req) {
-      const path = new URL(req.url).pathname;
+    switch (path) {
+      case "/":
+        return new Response(Bun.file("src/index.html"));
+      case "/style.css":
+        return new Response(Bun.file("src/style.css"));
+      case "/script.js":
+        const { outputs } = await Bun.build({
+          entrypoints: ["src/script.ts"],
+          minify: true,
+        });
+        return new Response(await outputs[0].text(), {
+          headers: { "Content-Type": "application/javascript" },
+        });
+      case "/favicon.ico":
+        return new Response(Bun.file("src/favicon.ico"));
+      default:
+        return new Response("Not found", { status: 404 });
+    }
+  },
+};
 
-      if (path === "/") return new Response(Bun.file("dist/index.html"));
+const server = Bun.serve(serverOptions);
+console.log(`Server started at ${server.url}`);
 
-      return new Response(Bun.file(`dist${path}`));
-    },
-    reusePort: true,
-  });
-}
-
-serve().then(() => {
-  console.log("Server running on http://localhost:3000");
-});
-
-watch(`${import.meta.dir}/../src`, { recursive: true }, (event, filename) => {
+watch("src", { recursive: true }, (event, filename) => {
   console.log(`Detected ${event} on ${filename}.`);
-  serve();
+  server.reload(serverOptions);
 });
