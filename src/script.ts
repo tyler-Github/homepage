@@ -10,15 +10,19 @@ import ls from "./bin/ls";
 const history: string[] = [];
 let currentPos = history.length - 1;
 
-const input = document.querySelector("input")!;
-const log = document.getElementById("log")!;
-const cwdElem = document.querySelector("#cwd")!;
+const input = document.querySelector("input");
+if (!input) throw new Error("Input element not found");
+
+const log = document.getElementById("log");
+if (!log) throw new Error("Log element not found");
+
+const cwdElem = document.querySelector("#cwd");
+if (!cwdElem) throw new Error("CWD element not found");
 
 log.innerHTML += `${about()}\n`;
 log.innerHTML += `Type "help" to see all available commands.\n`;
 
 let cwd = "/";
-cwdElem.innerHTML = cwd;
 
 document.addEventListener("click", (ev) => {
   if ((ev.target as HTMLElement).id === "log") return;

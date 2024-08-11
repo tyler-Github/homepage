@@ -6,22 +6,19 @@
 }
 
 body {
-    padding: 0 1rem;
-    margin: 1rem 0;
+    padding: 1rem;
+    margin: 0;
 }
 
 /* Input */
 main {
+    display: flex;
     width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1ch;
     position: sticky;
     bottom: 0;
     background-color: black;
     color: white;
     align-items: center;
-    min-height: 2rem;
     line-height: 2;
 }
 
@@ -32,9 +29,12 @@ input {
     background-color: black;
     color: white;
     padding: 0;
+    flex-grow: 1;
+    margin-left: 1ch;
+    height: 2rem;
 
     &:focus-visible {
-        outline: none;
+        outline: transparent;
     }
 }
 
