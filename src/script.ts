@@ -20,7 +20,10 @@ log.innerHTML += `Type "help" to see all available commands.\n`;
 let cwd = "/";
 cwdElem.innerHTML = cwd;
 
-document.addEventListener("click", () => input.focus());
+document.addEventListener("click", (ev) => {
+  if ((ev.target as HTMLElement).id === "log") return;
+  input.focus();
+});
 
 const Commands = {
   about,
