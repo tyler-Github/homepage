@@ -77,9 +77,11 @@ input.onkeyup = (e) => {
     const args = cmd.split(" ").slice(1);
     const originalCwd = cwd;
 
-    if (Object.hasOwn(Commands, command)) {
-      if (command === "about") returnVal = Commands.about();
-      if (command === "cd") {
+    switch (command) {
+      case "about":
+        returnVal = Commands.about();
+        break;
+      case "cd":
         cwd = Commands.cd(args, cwd);
         if (!cwd.endsWith("/")) {
           returnVal = cwd;
@@ -88,16 +90,21 @@ input.onkeyup = (e) => {
           cwdElem.innerHTML = cwd;
           returnVal = "";
         }
-      }
-      if (command === "clear") {
+        break;
+      case "clear":
         Commands.clear();
         return;
-      }
-      if (command === "color") returnVal = Commands.color(args);
-      if (command === "help") returnVal = Commands.help(args);
-      if (command === "ls") returnVal = Commands.ls(args, cwd);
-    } else {
-      returnVal = Commands.fallback(cmd);
+      case "color":
+        returnVal = Commands.color(args);
+        break;
+      case "help":
+        returnVal = Commands.help(args);
+        break;
+      case "ls":
+        returnVal = Commands.ls(args, cwd);
+        break;
+      default:
+        returnVal = Commands.fallback(cmd);
     }
 
     log.innerHTML += `${originalCwd} > ${input.value}\n`;
