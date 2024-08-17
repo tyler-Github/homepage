@@ -7,7 +7,7 @@ The ZeroLimits.dev homepage
 1.  Clone the repository.
 
     ```sh
-    git clone https://github.com/noClaps/ZeroLimits.dev.git
+    git clone https://gitlab.com/noClaps/ZeroLimits.dev.git
     cd ZeroLimits.dev
     ```
 
