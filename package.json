@@ -6,9 +6,7 @@
     "dev": "bun scripts/dev.ts"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.6"
-  },
-  "peerDependencies": {
+    "@types/bun": "^1.1.6",
     "typescript": "^5.5.4"
   },
   "dependencies": {
