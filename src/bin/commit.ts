@@ -1,5 +1,5 @@
 export default function commit() {
-  const html = `
+	const html = `
 This commit specification is based on the <a href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type">Angular convention</a>.
 COMMIT TYPES:
   build       Changes the build system or external dependencies
@@ -15,5 +15,5 @@ COMMIT TYPES:
   test        Adds or corrects tests
 `;
 
-  return html.trim();
+	return html.trim();
 }

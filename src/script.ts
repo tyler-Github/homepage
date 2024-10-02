@@ -26,96 +26,96 @@ log.innerHTML += `Type "help" to see all available commands.\n`;
 let cwd = "/";
 
 document.addEventListener("click", (ev) => {
-  if ((ev.target as HTMLElement).id === "log") return;
-  input.focus();
+	if ((ev.target as HTMLElement).id === "log") return;
+	input.focus();
 });
 
 const Commands = {
-  about,
-  commit,
-  cd,
-  clear() {
-    log.innerHTML = "";
-    input.value = "";
-  },
-  color,
-  help,
-  ls,
-  fallback,
+	about,
+	commit,
+	cd,
+	clear() {
+		log.innerHTML = "";
+		input.value = "";
+	},
+	color,
+	help,
+	ls,
+	fallback,
 };
 
 input.onkeyup = (e) => {
-  if (e.key === "ArrowUp") {
-    e.preventDefault();
-    if (currentPos >= 0) {
-      input.value = history[currentPos];
-      currentPos -= 1;
-    }
-  }
+	if (e.key === "ArrowUp") {
+		e.preventDefault();
+		if (currentPos >= 0) {
+			input.value = history[currentPos];
+			currentPos -= 1;
+		}
+	}
 
-  if (e.key === "ArrowDown") {
-    e.preventDefault();
-    if (currentPos < history.length - 1) {
-      currentPos += 1;
-      input.value = history[currentPos];
-    } else {
-      input.value = "";
-    }
-  }
+	if (e.key === "ArrowDown") {
+		e.preventDefault();
+		if (currentPos < history.length - 1) {
+			currentPos += 1;
+			input.value = history[currentPos];
+		} else {
+			input.value = "";
+		}
+	}
 
-  if (e.key === "Enter") {
-    const cmd = input.value.toLowerCase().trim();
-    history.push(cmd);
-    currentPos = history.length - 1;
+	if (e.key === "Enter") {
+		const cmd = input.value.toLowerCase().trim();
+		history.push(cmd);
+		currentPos = history.length - 1;
 
-    if (cmd === "clear") {
-      log.innerHTML = "";
-      input.value = "";
-      return;
-    }
+		if (cmd === "clear") {
+			log.innerHTML = "";
+			input.value = "";
+			return;
+		}
 
-    let returnVal: string = "";
-    const command = cmd.split(" ")[0];
-    const args = cmd.split(" ").slice(1);
-    const originalCwd = cwd;
+		let returnVal: string = "";
+		const command = cmd.split(" ")[0];
+		const args = cmd.split(" ").slice(1);
+		const originalCwd = cwd;
 
-    switch (command) {
-      case "about":
-        returnVal = Commands.about();
-        break;
-      case "commit":
-        returnVal = Commands.commit();
-        break;
-      case "cd":
-        cwd = Commands.cd(args, cwd);
-        if (!cwd.endsWith("/")) {
-          returnVal = cwd;
-          cwd = originalCwd;
-        } else {
-          cwdElem.innerHTML = cwd;
-          returnVal = "";
-        }
-        break;
-      case "clear":
-        Commands.clear();
-        return;
-      case "color":
-        returnVal = Commands.color(args);
-        break;
-      case "help":
-        returnVal = Commands.help(args);
-        break;
-      case "ls":
-        returnVal = Commands.ls(args, cwd);
-        break;
-      default:
-        returnVal = Commands.fallback(cmd);
-    }
+		switch (command) {
+			case "about":
+				returnVal = Commands.about();
+				break;
+			case "commit":
+				returnVal = Commands.commit();
+				break;
+			case "cd":
+				cwd = Commands.cd(args, cwd);
+				if (!cwd.endsWith("/")) {
+					returnVal = cwd;
+					cwd = originalCwd;
+				} else {
+					cwdElem.innerHTML = cwd;
+					returnVal = "";
+				}
+				break;
+			case "clear":
+				Commands.clear();
+				return;
+			case "color":
+				returnVal = Commands.color(args);
+				break;
+			case "help":
+				returnVal = Commands.help(args);
+				break;
+			case "ls":
+				returnVal = Commands.ls(args, cwd);
+				break;
+			default:
+				returnVal = Commands.fallback(cmd);
+		}
 
-    log.innerHTML += `${originalCwd} > ${input.value}\n`;
-    log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
+		log.innerHTML += `${originalCwd} > ${input.value}\n`;
+		log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
 
-    scrollTo(0, document.body.scrollHeight);
-    input.value = "";
-  }
+		scrollTo(0, document.body.scrollHeight);
+		input.value = "";
+	}
 };

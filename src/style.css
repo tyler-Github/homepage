@@ -1,57 +1,57 @@
 /* Root */
 :root {
-    font-family: ui-monospace, monospace;
-    background-color: black;
-    color: white;
+	font-family: ui-monospace, monospace;
+	background-color: black;
+	color: white;
 }
 
 body {
-    padding: 1rem;
-    margin: 0;
+	padding: 1rem;
+	margin: 0;
 }
 
 /* Input */
 main {
-    display: flex;
-    width: 100%;
-    position: sticky;
-    bottom: 0;
-    background-color: black;
-    color: white;
-    align-items: center;
-    line-height: 2;
+	display: flex;
+	width: 100%;
+	position: sticky;
+	bottom: 0;
+	background-color: black;
+	color: white;
+	align-items: center;
+	line-height: 2;
 }
 
 input {
-    border: none;
-    font-family: ui-monospace, monospace;
-    font-size: 1rem;
-    background-color: black;
-    color: white;
-    padding: 0;
-    flex-grow: 1;
-    margin-left: 1ch;
-    height: 2rem;
+	border: none;
+	font-family: ui-monospace, monospace;
+	font-size: 1rem;
+	background-color: black;
+	color: white;
+	padding: 0;
+	flex-grow: 1;
+	margin-left: 1ch;
+	height: 2rem;
 
-    &:focus-visible {
-        outline: transparent;
-    }
+	&:focus-visible {
+		outline: transparent;
+	}
 }
 
 /* Log */
 pre {
-    margin: 0;
-    line-height: 2;
-    font-size: 1rem;
-    font-family: ui-monospace, monospace;
-    white-space: break-spaces;
+	margin: 0;
+	line-height: 2;
+	font-size: 1rem;
+	font-family: ui-monospace, monospace;
+	white-space: break-spaces;
 }
 
 a {
-    color: white;
+	color: white;
 }
 
 /* CWD */
 #cwd {
-    margin-right: 1ch;
+	margin-right: 1ch;
 }
