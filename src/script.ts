@@ -17,7 +17,7 @@ if (!input) throw new Error("Input element not found");
 const log = document.getElementById("log");
 if (!log) throw new Error("Log element not found");
 
-const cwdElem = document.querySelector("#cwd");
+const cwdElem = document.getElementById("cwd");
 if (!cwdElem) throw new Error("CWD element not found");
 
 log.innerHTML += `${about()}\n`;
@@ -44,78 +44,95 @@ const Commands = {
 	fallback,
 };
 
-input.onkeyup = (e) => {
-	if (e.key === "ArrowUp") {
-		e.preventDefault();
-		if (currentPos >= 0) {
-			input.value = history[currentPos];
-			currentPos -= 1;
-		}
-	}
-
-	if (e.key === "ArrowDown") {
-		e.preventDefault();
-		if (currentPos < history.length - 1) {
-			currentPos += 1;
-			input.value = history[currentPos];
-		} else {
-			input.value = "";
-		}
-	}
-
-	if (e.key === "Enter") {
-		const cmd = input.value.toLowerCase().trim();
-		history.push(cmd);
-		currentPos = history.length - 1;
-
-		if (cmd === "clear") {
-			log.innerHTML = "";
-			input.value = "";
-			return;
-		}
-
-		let returnVal: string = "";
-		const command = cmd.split(" ")[0];
-		const args = cmd.split(" ").slice(1);
-		const originalCwd = cwd;
-
-		switch (command) {
-			case "about":
-				returnVal = Commands.about();
-				break;
-			case "commit":
-				returnVal = Commands.commit();
-				break;
-			case "cd":
-				cwd = Commands.cd(args, cwd);
-				if (!cwd.endsWith("/")) {
-					returnVal = cwd;
-					cwd = originalCwd;
-				} else {
-					cwdElem.innerHTML = cwd;
-					returnVal = "";
+input.addEventListener("keyup", (e) => {
+	switch (e.key) {
+		case "ArrowUp": {
+			if (e.key === "ArrowUp") {
+				e.preventDefault();
+				if (currentPos >= 0) {
+					input.value = history[currentPos];
+					currentPos -= 1;
 				}
-				break;
-			case "clear":
-				Commands.clear();
-				return;
-			case "color":
-				returnVal = Commands.color(args);
-				break;
-			case "help":
-				returnVal = Commands.help(args);
-				break;
-			case "ls":
-				returnVal = Commands.ls(args, cwd);
-				break;
-			default:
-				returnVal = Commands.fallback(cmd);
+			}
+			break;
 		}
 
-		log.innerHTML += `${originalCwd} > ${input.value}\n`;
-		log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
+		case "ArrowDown": {
+			e.preventDefault();
+			if (currentPos < history.length - 1) {
+				currentPos += 1;
+				input.value = history[currentPos];
+			} else {
+				input.value = "";
+			}
 
-		scrollTo(0, document.body.scrollHeight);
-		input.value = "";
+			break;
+		}
+
+		case "Enter": {
+			const cmd = input.value.toLowerCase().trim();
+			history.push(cmd);
+			currentPos = history.length - 1;
+
+			if (cmd === "clear") {
+				log.innerHTML = "";
+				input.value = "";
+				return;
+			}
+
+			let returnVal: string = "";
+			const command = cmd.split(" ")[0];
+			const args = cmd.split(" ").slice(1);
+			const originalCwd = cwd;
+
+			switch (command) {
+				case "about": {
+					returnVal = Commands.about();
+					break;
+				}
+				case "commit": {
+					returnVal = Commands.commit();
+					break;
+				}
+				case "cd": {
+					cwd = Commands.cd(args, cwd);
+					console.log(`Changed directory to ${cwd}`);
+					if (!cwd.endsWith("/")) {
+						returnVal = cwd;
+						cwd = originalCwd;
+					} else {
+						cwdElem.innerHTML = cwd;
+						returnVal = "";
+					}
+
+					console.log(cwdElem.innerHTML);
+					break;
+				}
+				case "clear": {
+					Commands.clear();
+					return;
+				}
+				case "color": {
+					returnVal = Commands.color(args);
+					break;
+				}
+				case "help": {
+					returnVal = Commands.help(args);
+					break;
+				}
+				case "ls": {
+					returnVal = Commands.ls(args, cwd);
+					break;
+				}
+				default:
+					returnVal = Commands.fallback(cmd);
+			}
+
+			log.innerHTML += `${originalCwd} > ${input.value}\n`;
+			log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
+
+			scrollTo(0, document.body.scrollHeight);
+			input.value = "";
+		}
 	}
-};
+});

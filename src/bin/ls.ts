@@ -7,31 +7,30 @@ export default function ls(args: string[], cwd: string) {
 
 	const arg = args[0];
 
-	if (cwd === "/") {
-		if (!arg || arg.match(/^(\.\.?)?\/?$/))
-			return Object.keys(directory["/"]).join("\n");
+	switch (cwd) {
+		case "/": {
+			if (!arg || arg.match(/^(\.\.?)?\/?$/))
+				return Object.keys(directory["/"]).join("\n");
+			if (arg.match(/^(\.?\/)?projects\/?$/)) return ls([""], "/projects/");
+			if (arg.match(/^(\.?\/)?contact\/?$/)) return ls([""], "/contact/");
+			break;
+		}
 
-		if (arg.match(/^(\.?\/)?projects\/?$/)) return ls([""], "/projects/");
+		case "/projects/": {
+			if (!arg || arg === "." || arg.match(/^(\.\.)?\/projects\/?$/))
+				return Object.values(directory["/"]["projects/"]).join("\n");
+			if (arg.match(/^(\.\.)?\/?$/)) return ls([""], "/");
+			if (arg.match(/^(\.\.)?\/contact\/?$/)) return ls([""], "/contact/");
+			break;
+		}
 
-		if (arg.match(/^(\.?\/)?contact\/?$/)) return ls([""], "/contact/");
-	}
-
-	if (cwd === "/projects/") {
-		if (!arg || arg === "." || arg.match(/^(\.\.)?\/projects\/?$/))
-			return Object.values(directory["/"]["projects/"]).join("\n");
-
-		if (arg.match(/^(\.\.)?\/?$/)) return ls([""], "/");
-
-		if (arg.match(/^(\.\.)?\/contact\/?$/)) return ls([""], "/contact/");
-	}
-
-	if (cwd === "/contact/") {
-		if (!arg || arg === "." || arg.match(/^(\.\.)?\/contact\/?$/))
-			return Object.values(directory["/"]["contact/"]).join("\n");
-
-		if (arg.match(/^(\.\.)?\/?$/)) return ls([""], "/");
-
-		if (arg.match(/^(\.\.)?\/projects\/?$/)) return ls([""], "/projects/");
+		case "/contact/": {
+			if (!arg || arg === "." || arg.match(/^(\.\.)?\/contact\/?$/))
+				return Object.values(directory["/"]["contact/"]).join("\n");
+			if (arg.match(/^(\.\.)?\/?$/)) return ls([""], "/");
+			if (arg.match(/^(\.\.)?\/projects\/?$/)) return ls([""], "/projects/");
+			break;
+		}
 	}
 
 	return `${arg}: Directory not found`;
