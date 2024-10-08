@@ -4,4 +4,4 @@ build:
 	@bun build src/script.ts --outdir dist/ --minify
 
 dev:
-	@watchexec -r "make build && bunx serve dist"
+	@watchexec -r "make build && bunx serve -n dist"
