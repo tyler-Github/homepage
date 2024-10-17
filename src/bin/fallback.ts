@@ -1,5 +1,4 @@
-// @ts-nocheck
-import directory from "../directory.json";
+import { directory } from "../directory.ts";
 
 export default function fallback(command: string): string {
 	if (directory["/"]["projects/"][command]) {

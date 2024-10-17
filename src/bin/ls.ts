@@ -1,4 +1,4 @@
-import directory from "../directory.json";
+import { directory } from "../directory.ts";
 
 export default function ls(args: string[], cwd: string) {
 	if (args.length > 1) {
