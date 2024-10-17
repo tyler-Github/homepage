@@ -2,7 +2,6 @@
 
 import about from "./bin/about";
 import commit from "./bin/commit";
-import cd from "./bin/cd";
 import color from "./bin/color";
 import fallback from "./bin/fallback";
 import help from "./bin/help";
@@ -33,7 +32,6 @@ document.addEventListener("click", (ev) => {
 const Commands = {
 	about,
 	commit,
-	cd,
 	clear() {
 		log.innerHTML = "";
 		input.value = "";
@@ -92,20 +90,6 @@ input.addEventListener("keyup", (e) => {
 				}
 				case "commit": {
 					returnVal = Commands.commit();
-					break;
-				}
-				case "cd": {
-					cwd = Commands.cd(args, cwd);
-					console.log(`Changed directory to ${cwd}`);
-					if (!cwd.endsWith("/")) {
-						returnVal = cwd;
-						cwd = originalCwd;
-					} else {
-						cwdElem.innerHTML = cwd;
-						returnVal = "";
-					}
-
-					console.log(cwdElem.innerHTML);
 					break;
 				}
 				case "clear": {

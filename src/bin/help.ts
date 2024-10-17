@@ -9,7 +9,6 @@ export default function help(args: string[]) {
 COMMANDS
   about                   Show details about the site
   commit                  List the conventional commits specification
-  cd [directory]          Change directory
   clear                   Clear the screen
   color [color] [format]  Convert colors from one format to another
   help [command]          Display help menu
@@ -24,14 +23,6 @@ USAGE: about
 		commit: `
 NAME: commit – List the conventional commits specification
 USAGE: commit
-`,
-		cd: `
-NAME: cd – Change directory
-USAGE: cd [directory]
-ARGUMENTS:
-  directory        The directory to change to. The available directories can be
-                   listed with "ls". If this argument is not provided, the
-                   directory does not change.
 `,
 		clear: `
 NAME: clear – Clear the screen
