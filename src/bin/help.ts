@@ -1,34 +1,33 @@
 export default function help(args: string[]) {
-	if (args.length > 1) {
-		return `Incorrect usage of the help command. Use "help help" to see how to use this command.`;
-	}
+  if (args.length > 1) {
+    return `Incorrect usage of the help command. Use "help help" to see how to use this command.`;
+  }
 
-	const arg = args[0];
+  const arg = args[0];
 
-	const html = `
+  const html = `
 COMMANDS
-  about                   Show details about the site
-  commit                  List the conventional commits specification
-  clear                   Clear the screen
-  color [color] [format]  Convert colors from one format to another
-  help [command]          Display help menu
-  ls [directory]          List contents of directory
+  about                      Show details about the site
+  commit                     List the conventional commits specification
+  clear                      Clear the screen
+  color [color] [format]     Convert colors from one format to another
+  help [command]             Display help menu
 `;
 
-	const commands: { [index: string]: string } = {
-		about: `
+  const commands: { [index: string]: string } = {
+    about: `
 NAME: about – Show details about the site
 USAGE: about
 `,
-		commit: `
+    commit: `
 NAME: commit – List the conventional commits specification
 USAGE: commit
 `,
-		clear: `
+    clear: `
 NAME: clear – Clear the screen
 USAGE: clear
 `,
-		color: `
+    color: `
 NAME: color – Convert colors from one format to another
 USAGE: color [color] [format]
 ARGUMENTS:
@@ -37,7 +36,7 @@ ARGUMENTS:
   format        The format that you would like to convert to. This can be in
                 any existing format, such as hex, RGB, LCH, etc.
 `,
-		help: `
+    help: `
 NAME: help – Display help menu
 USAGE: help [command]
 ARGUMENTS:
@@ -56,9 +55,9 @@ ARGUMENTS:
 `,
 	};
 
-	if (arg && commands[arg]) {
-		return commands[arg].trim();
-	}
+  if (arg && commands[arg]) {
+    return commands[arg].trim();
+  }
 
-	return html.trim();
+  return html.trim();
 }
