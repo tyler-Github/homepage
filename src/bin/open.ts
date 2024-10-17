@@ -10,22 +10,22 @@ export function open(args: string[]) {
   if (args.length === 2) {
     if (args[0] === "--source") {
       openSource = true;
-      args[1] = key;
+      key = args[1];
     }
 
     if (args[1] === "--source") {
       openSource = true;
-      args[0] = key;
+      key = args[0];
     }
 
-    if (args[0] !== "--source" || args[1] !== "--source") {
+    if (args[0] !== "--source" && args[1] !== "--source") {
       return `Incorrect usage of the open command. Use "help open" to see how to use this command.`;
     }
   } else {
     key = args[0];
   }
 
-  if (directory.projects[key]) {
+  if (key in directory.projects) {
     if (openSource || !directory.projects[key].link) {
       window.open(directory.projects[key].source, "_blank");
       return "";
@@ -35,7 +35,7 @@ export function open(args: string[]) {
     return "";
   }
 
-  if (directory.contact[key]) {
+  if (key in directory.contact) {
     if (openSource) {
       return "--source flag cannot be used with a contact key.";
     }
