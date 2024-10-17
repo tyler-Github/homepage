@@ -40,7 +40,6 @@ export default function ls(args: string[]) {
     return `
 projects/
 ${projectsList}
-
 contacts/
 ${contactList}`.trim();
   }
