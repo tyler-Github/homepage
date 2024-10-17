@@ -6,6 +6,7 @@ import color from "./bin/color";
 import fallback from "./bin/fallback";
 import help from "./bin/help";
 import ls from "./bin/ls";
+import { open } from "./bin/open";
 
 const history: string[] = [];
 let currentPos = history.length - 1;
@@ -39,6 +40,7 @@ const Commands = {
   color,
   help,
   ls,
+  open,
   fallback,
 };
 
@@ -67,10 +69,6 @@ input.addEventListener("keyup", (e) => {
       break;
     }
 
-				case "ls": {
-					returnVal = Commands.ls(args, cwd);
-					break;
-				}
     case "Enter": {
       const cmd = input.value.toLowerCase().trim();
       history.push(cmd);
@@ -106,6 +104,14 @@ input.addEventListener("keyup", (e) => {
         }
         case "help": {
           returnVal = Commands.help(args);
+          break;
+        }
+        case "ls": {
+          returnVal = Commands.ls(args);
+          break;
+        }
+        case "open": {
+          returnVal = Commands.open(args);
           break;
         }
         default:
