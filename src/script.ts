@@ -1,10 +1,10 @@
-import about from "./bin/about";
-import commit from "./bin/commit";
-import color from "./bin/color";
-import fallback from "./bin/fallback";
-import help from "./bin/help";
-import ls from "./bin/ls";
-import { open } from "./bin/open";
+import about from "./bin/about.ts";
+import commit from "./bin/commit.ts";
+import color from "./bin/color.ts";
+import fallback from "./bin/fallback.ts";
+import help from "./bin/help.ts";
+import ls from "./bin/ls.ts";
+import { open } from "./bin/open.ts";
 
 const cmdHistory: string[] = [];
 let currentPos = cmdHistory.length - 1;
