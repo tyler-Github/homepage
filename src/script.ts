@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-
 import about from "./bin/about";
 import commit from "./bin/commit";
 import color from "./bin/color";
@@ -8,8 +6,8 @@ import help from "./bin/help";
 import ls from "./bin/ls";
 import { open } from "./bin/open";
 
-const history: string[] = [];
-let currentPos = history.length - 1;
+const cmdHistory: string[] = [];
+let currentPos = cmdHistory.length - 1;
 
 const input = document.querySelector("input");
 if (!input) throw new Error("Input element not found");
@@ -50,7 +48,7 @@ input.addEventListener("keyup", (e) => {
       if (e.key === "ArrowUp") {
         e.preventDefault();
         if (currentPos >= 0) {
-          input.value = history[currentPos];
+          input.value = cmdHistory[currentPos];
           currentPos -= 1;
         }
       }
@@ -59,9 +57,9 @@ input.addEventListener("keyup", (e) => {
 
     case "ArrowDown": {
       e.preventDefault();
-      if (currentPos < history.length - 1) {
+      if (currentPos < cmdHistory.length - 1) {
         currentPos += 1;
-        input.value = history[currentPos];
+        input.value = cmdHistory[currentPos];
       } else {
         input.value = "";
       }
@@ -71,8 +69,8 @@ input.addEventListener("keyup", (e) => {
 
     case "Enter": {
       const cmd = input.value.toLowerCase().trim();
-      history.push(cmd);
-      currentPos = history.length - 1;
+      cmdHistory.push(cmd);
+      currentPos = cmdHistory.length - 1;
 
       if (cmd === "clear") {
         log.innerHTML = "";
