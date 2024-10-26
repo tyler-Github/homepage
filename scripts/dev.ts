@@ -1,5 +1,6 @@
 import type { Serve } from "bun";
 import { watch } from "node:fs";
+import { buildHtml } from "./build.ts";
 
 const serverOptions: Serve = {
   async fetch({ url }) {
@@ -7,19 +8,11 @@ const serverOptions: Serve = {
 
     switch (path) {
       case "/":
-        return new Response(Bun.file("src/index.html"));
+        return new Response(await buildHtml(), {
+          headers: { "content-type": "text/html" },
+        });
       case "/favicon.ico":
         return new Response(Bun.file("src/favicon.ico"));
-      case "/style.css":
-        return new Response(Bun.file("src/style.css"));
-      case "/script.js": {
-        const script = await Bun.build({
-          entrypoints: ["src/script.ts"],
-        }).then((bo) => bo.outputs[0].arrayBuffer());
-        return new Response(script, {
-          headers: { "content-type": "application/javascript" },
-        });
-      }
       default:
         return new Response("Not found", { status: 404 });
     }
