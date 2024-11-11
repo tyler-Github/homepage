@@ -20,6 +20,11 @@ export const directory: Directory = {
       link: "https://discord.com/oauth2/authorize?client_id=1271901024910839959",
       source: "https://gitlab.com/noClaps/catbot",
     },
+    life: {
+      name: "Conway's Game of Life",
+      link: "https://life.zerolimits.dev",
+      source: "https://gitlab.com/noClaps/game-of-life",
+    },
     "discuit-docs": {
       name: "Discuit API Documentation",
       link: "https://docs.discuit.net",
