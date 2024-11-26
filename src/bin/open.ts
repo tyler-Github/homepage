@@ -1,7 +1,7 @@
 import { directory } from "../directory.ts";
 
 export function open(args: string[]) {
-  if (!args || args.length > 2)
+  if (args.length < 1 || args.length > 2)
     return `Incorrect usage of the open command. Use "help open" to see how to use this command.`;
 
   let key = "";
