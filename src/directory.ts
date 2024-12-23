@@ -30,6 +30,10 @@ export const directory: Directory = {
       link: "https://docs.discuit.net",
       source: "https://github.com/discuitnet/docs",
     },
+    highlight: {
+      name: "Highlight",
+      source: "https://gitlab.com/noClaps/highlight",
+    },
     lsdeps: {
       name: "lsdeps",
       source: "https://gitlab.com/noClaps/lsdeps",
