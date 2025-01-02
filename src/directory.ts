@@ -77,6 +77,11 @@ export const directory: Directory = {
     },
   },
   contact: {
+    bluesky: {
+      name: "Bluesky",
+      link: "https://bsky.app/profile/zerolimits.dev",
+      linkName: "@zerolimits.dev",
+    },
     email: {
       name: "Email",
       link: "mailto:contact@zerolimits.dev",
