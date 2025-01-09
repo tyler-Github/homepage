@@ -1,5 +1,4 @@
 import about from "./bin/about.ts";
-import commit from "./bin/commit.ts";
 import color from "./bin/color.ts";
 import fallback from "./bin/fallback.ts";
 import help from "./bin/help.ts";
@@ -25,7 +24,6 @@ document.addEventListener("click", (ev) => {
 
 const Commands = {
   about,
-  commit,
   clear() {
     log.innerHTML = "";
     input.value = "";
@@ -80,10 +78,6 @@ input.addEventListener("keyup", (e) => {
       switch (command) {
         case "about": {
           returnVal = Commands.about();
-          break;
-        }
-        case "commit": {
-          returnVal = Commands.commit();
           break;
         }
         case "clear": {

@@ -8,7 +8,6 @@ export default function help(args: string[]) {
   const html = `
 COMMANDS
   about                      Show details about the site
-  commit                     List the conventional commits specification
   clear                      Clear the screen
   color [color] [format]     Convert colors from one format to another
   help [command]             Display help menu
@@ -20,10 +19,6 @@ COMMANDS
     about: `
 NAME: about – Show details about the site
 USAGE: about
-`,
-    commit: `
-NAME: commit – List the conventional commits specification
-USAGE: commit
 `,
     clear: `
 NAME: clear – Clear the screen
