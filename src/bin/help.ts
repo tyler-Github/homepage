@@ -7,19 +7,15 @@ export default function help(args: string[]) {
 
   const html = `
 COMMANDS
-  about                      Show details about the site
   clear                      Clear the screen
   color [color] [format]     Convert colors from one format to another
   help [command]             Display help menu
   ls [directory] [--keys]    List contents of directory
   open [key] [--source]      Open link or source in a new tab
+  whoami                     Show details about me
 `;
 
   const commands: { [index: string]: string } = {
-    about: `
-NAME: about – Show details about the site
-USAGE: about
-`,
     clear: `
 NAME: clear – Clear the screen
 USAGE: clear
@@ -66,6 +62,10 @@ ARGUMENTS:
 OPTIONS:
   source        Open the link to the source code, even if there is a website link
                 available.
+`,
+    whoami: `
+NAME: whoami – Show details about me
+USAGE: whoami
 `,
   };
 

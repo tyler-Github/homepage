@@ -1,4 +1,4 @@
-import about from "./bin/about.ts";
+import whoami from "./bin/whoami.ts";
 import color from "./bin/color.ts";
 import fallback from "./bin/fallback.ts";
 import help from "./bin/help.ts";
@@ -14,7 +14,7 @@ if (!input) throw new Error("Input element not found");
 const log = document.getElementById("log");
 if (!log) throw new Error("Log element not found");
 
-log.innerHTML += `${about()}\n`;
+log.innerHTML += `ZeroLimits.dev – Made by <a href="https://gitlab.com/noClaps">noClaps</a>\n`;
 log.innerHTML += `Type "help" to see all available commands.\n`;
 
 document.addEventListener("click", (ev) => {
@@ -23,7 +23,7 @@ document.addEventListener("click", (ev) => {
 });
 
 const Commands = {
-  about,
+  whoami,
   clear() {
     log.innerHTML = "";
     input.value = "";
@@ -76,8 +76,8 @@ input.addEventListener("keyup", (e) => {
       const args = cmd.split(" ").slice(1);
 
       switch (command) {
-        case "about": {
-          returnVal = Commands.about();
+        case "whoami": {
+          returnVal = Commands.whoami();
           break;
         }
         case "clear": {
