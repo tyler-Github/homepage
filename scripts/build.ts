@@ -26,6 +26,6 @@ export async function buildHtml() {
       },
     });
 
-  return rw.transform(html);
+  return rw.transform(html.replaceAll(/>\s+</g, "><").replaceAll(/\s+/g, " "));
 }
 Bun.write("dist/index.html", await buildHtml());
