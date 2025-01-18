@@ -92,10 +92,5 @@ export const directory: Directory = {
       link: "https://gitlab.com/noClaps",
       linkName: "noClaps",
     },
-    "read.cv": {
-      name: "Read.cv",
-      link: "https://read.cv/noclaps",
-      linkName: "noClaps",
-    },
   },
 };
