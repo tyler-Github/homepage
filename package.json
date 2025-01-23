@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "bun scripts/build.ts",
-    "dev": "bun --experimental-html scripts/dev.ts",
+    "dev": "bun scripts/dev.ts",
     "preview": "bunx serve -n dist"
   }
 }
