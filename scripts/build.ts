@@ -8,7 +8,6 @@ export async function buildHtml() {
       async element(el) {
         const href = el.getAttribute("href")!;
         const css = await Bun.build({
-          experimentalCss: true,
           entrypoints: [`src/${href}`],
           minify: true,
         }).then((bo) => bo.outputs[0].text());
