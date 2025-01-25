@@ -1,16 +1,13 @@
 {
   "name": "zerolimits.dev",
-  "type": "module",
   "devDependencies": {
     "@types/bun": "^1.2.0",
     "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "colorjs.io": "^0.5.2"
   },
   "scripts": {
     "build": "bun build src/index.html --outdir dist",
     "dev": "bun scripts/dev.ts",
     "preview": "bunx serve -n dist"
-  }
+  },
+  "type": "module"
 }
