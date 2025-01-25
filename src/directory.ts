@@ -20,6 +20,10 @@ export const directory: Directory = {
       link: "https://discord.com/oauth2/authorize?client_id=1271901024910839959",
       source: "https://gitlab.com/noClaps/catbot",
     },
+    color: {
+      name: "color",
+      source: "https://gitlab.com/noClaps/color",
+    },
     life: {
       name: "Conway's Game of Life",
       link: "https://life.zerolimits.dev",
