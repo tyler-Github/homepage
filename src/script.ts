@@ -1,5 +1,4 @@
 import whoami from "./bin/whoami.ts";
-import color from "./bin/color.ts";
 import fallback from "./bin/fallback.ts";
 import help from "./bin/help.ts";
 import ls from "./bin/ls.ts";
@@ -28,7 +27,6 @@ const Commands = {
     log.innerHTML = "";
     input.value = "";
   },
-  color,
   help,
   ls,
   open,
@@ -83,10 +81,6 @@ input.addEventListener("keyup", (e) => {
         case "clear": {
           Commands.clear();
           return;
-        }
-        case "color": {
-          returnVal = Commands.color(args);
-          break;
         }
         case "help": {
           returnVal = Commands.help(args);

@@ -8,7 +8,6 @@ export default function help(args: string[]) {
   const html = `
 COMMANDS
   clear                      Clear the screen
-  color [color] [format]     Convert colors from one format to another
   help [command]             Display help menu
   ls [directory] [--keys]    List contents of directory
   open [key] [--source]      Open link or source in a new tab
@@ -19,15 +18,6 @@ COMMANDS
     clear: `
 NAME: clear – Clear the screen
 USAGE: clear
-`,
-    color: `
-NAME: color – Convert colors from one format to another
-USAGE: color [color] [format]
-ARGUMENTS:
-  color         The color that you would like to convert to another format.
-                This can be in any existing format, such as hex, RGB, LCH, etc.
-  format        The format that you would like to convert to. This can be in
-                any existing format, such as hex, RGB, LCH, etc.
 `,
     help: `
 NAME: help – Display help menu
