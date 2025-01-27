@@ -36,7 +36,7 @@ export const directory: Directory = {
     },
     highlight: {
       name: "Highlight",
-      source: "https://gitlab.com/noClaps/highlight",
+      source: "https://github.com/noClaps/highlight",
     },
     lsdeps: {
       name: "lsdeps",
@@ -90,6 +90,11 @@ export const directory: Directory = {
       name: "Email",
       link: "mailto:contact@zerolimits.dev",
       linkName: "contact@zerolimits.dev",
+    },
+    github: {
+      name: "GitHub",
+      link: "https://github.com/noClaps",
+      linkName: "noClaps",
     },
     gitlab: {
       name: "GitLab",
