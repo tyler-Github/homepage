@@ -36,7 +36,7 @@ export const directory: Directory = {
     },
     highlight: {
       name: "Highlight",
-      source: "https://github.com/noClaps/highlight",
+      source: "https://gitlab.com/noClaps/highlight",
     },
     lsdeps: {
       name: "lsdeps",
