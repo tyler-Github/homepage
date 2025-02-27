@@ -64,11 +64,6 @@ export const directory: Directory = {
       link: "https://blog.zerolimits.dev",
       source: "https://gitlab.com/noClaps/blog",
     },
-    docs: {
-      name: "ZeroLimits Docs",
-      link: "https://docs.zerolimits.dev",
-      source: "https://gitlab.com/noClaps/docs",
-    },
     homepage: {
       name: "ZeroLimits.dev",
       link: "https://zerolimits.dev",
