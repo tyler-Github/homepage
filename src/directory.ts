@@ -71,7 +71,6 @@ export const directory: Directory = {
     },
     znak: {
       name: "Znak",
-      link: "https://znak.zerolimits.dev",
       source: "https://gitlab.com/noClaps/znak-lang",
     },
   },
