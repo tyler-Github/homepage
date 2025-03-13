@@ -9,22 +9,21 @@
       "properties": {
         "color": {
           "type": "string",
-          "title": "The text color of the syntax type"
+          "description": "The text color of the syntax type"
         },
         "font_weight": {
           "type": "integer",
-          "title": "The font weight for the syntax type",
-          "description": "This should be a number between 1 and 1000"
+          "description": "The font weight for the syntax type. This should be a number between 1 and 1000"
         },
         "font_style": {
           "type": "string",
           "enum": ["italic", "normal", "oblique"],
           "default": "normal",
-          "title": "The font style for the syntax type"
+          "description": "The font style for the syntax type"
         },
         "background_color": {
           "type": "string",
-          "title": "The background color for the syntax type"
+          "description": "The background color for the syntax type"
         }
       }
     }
@@ -32,35 +31,31 @@
   "properties": {
     "bg": {
       "type": "string",
-      "title": "The default background color",
-      "description": "This is the background color of the code block"
+      "description": "The default background color. This is the background color of the code block"
     },
     "fg": {
       "type": "string",
-      "title": "The default text color",
-      "description": "This is set on the parent `<pre>` element and is used if no valid highlight is present, or no highlight color is provided for that syntax."
+      "description": "The default text color. This is set on the parent `<pre>` element and is used if no valid highlight is present, or no highlight color is provided for that syntax."
     },
     "line_numbers": {
       "type": "object",
-      "title": "An object to configure line numbers",
-      "description": "If this is left out, no line numbers will be present",
+      "description": "An object to configure line numbers. If this is left out, no line numbers will be present",
       "required": ["color"],
       "properties": {
         "color": {
           "type": "string",
-          "title": "The color of the line numbers"
+          "description": "The color of the line numbers"
         },
         "right_space": {
           "type": "number",
-          "title": "The number of spaces between the line numbers and the code, in units of `ch`",
+          "description": "The number of spaces between the line numbers and the code, in units of `ch`",
           "default": 1
         }
       }
     },
     "highlights": {
       "type": "object",
-      "title": "An object to configure highlights",
-      "description": "This is a map, with the keys being the syntax types, and the values being the configuration object. If you don't want to have inline styles, you can have the keys be the syntax types you want to select, and the configuration object empty for each one.",
+      "description": "An object to configure highlights. This is a map, with the keys being the syntax types, and the values being the configuration object. If you don't want to have inline styles, you can have the keys be the syntax types you want to select, and the configuration object empty for each one.",
       "default": {},
       "additionalProperties": {
         "$ref": "#/definitions/HighlightStyle"
