@@ -13,6 +13,8 @@
         },
         "font_weight": {
           "type": "integer",
+          "minimum": 1,
+          "exclusiveMaximum": 1000,
           "description": "The font weight for the syntax type. This should be a number between 1 and 1000"
         },
         "font_style": {
