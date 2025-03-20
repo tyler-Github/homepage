@@ -56,7 +56,7 @@ export const directory: Directory = {
       source: "https://gitlab.com/noClaps/psc",
     },
     qcsim: {
-      name: "qcsim",
+      name: "QCSim",
       source: "https://gitlab.com/noClaps/qcsim",
     },
     random: {
