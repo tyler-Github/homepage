@@ -8,7 +8,7 @@ export const directory: Directory = {
     gallery: {
       name: "Aperturic Focus",
       link: "https://gallery.zerolimits.dev",
-      source: "https://gitlab.com/noClaps/gallery",
+      source: "https://github.com/noClaps/gallery",
     },
     camphouse: {
       name: "Camphouse",
@@ -18,16 +18,16 @@ export const directory: Directory = {
     catbot: {
       name: "CatBot",
       link: "https://discord.com/oauth2/authorize?client_id=1271901024910839959",
-      source: "https://gitlab.com/noClaps/catbot",
+      source: "https://github.com/noClaps/catbot",
     },
     color: {
       name: "color",
-      source: "https://gitlab.com/noClaps/color",
+      source: "https://github.com/noClaps/color",
     },
     life: {
       name: "Conway's Game of Life",
       link: "https://life.zerolimits.dev",
-      source: "https://gitlab.com/noClaps/game-of-life",
+      source: "https://github.com/noClaps/game-of-life",
     },
     "discuit-docs": {
       name: "Discuit API Documentation",
@@ -36,46 +36,46 @@ export const directory: Directory = {
     },
     highlight: {
       name: "Highlight",
-      source: "https://gitlab.com/noClaps/highlight",
+      source: "https://github.com/noClaps/highlight",
     },
     lsdeps: {
       name: "lsdeps",
-      source: "https://gitlab.com/noClaps/lsdeps",
+      source: "https://github.com/noClaps/lsdeps",
     },
     news: {
       name: "News",
       link: "https://news.zerolimits.dev",
-      source: "https://gitlab.com/noClaps/news",
+      source: "https://github.com/noClaps/news",
     },
     passgen: {
       name: "passgen",
-      source: "https://gitlab.com/noClaps/passgen",
+      source: "https://github.com/noClaps/passgen",
     },
     psc: {
       name: "psc",
-      source: "https://gitlab.com/noClaps/psc",
+      source: "https://github.com/noClaps/psc",
     },
     qcsim: {
       name: "QCSim",
-      source: "https://gitlab.com/noClaps/qcsim",
+      source: "https://github.com/noClaps/qcsim",
     },
     random: {
       name: "random",
-      source: "https://gitlab.com/noClaps/random",
+      source: "https://github.com/noClaps/random",
     },
     blog: {
       name: "The Blog of Random",
       link: "https://blog.zerolimits.dev",
-      source: "https://gitlab.com/noClaps/blog",
+      source: "https://github.com/noClaps/blog",
     },
     homepage: {
       name: "ZeroLimits.dev",
       link: "https://zerolimits.dev",
-      source: "https://gitlab.com/noClaps/homepage",
+      source: "https://github.com/noClaps/homepage",
     },
     znak: {
       name: "Znak",
-      source: "https://gitlab.com/noClaps/znak-lang",
+      source: "https://github.com/noClaps/znak",
     },
   },
   contact: {
