@@ -50,10 +50,6 @@ export const directory: Directory = {
       link: "https://docs.discuit.net",
       source: "https://github.com/discuitnet/docs",
     },
-    highlight: {
-      name: "Highlight",
-      source: "https://github.com/noClaps/highlight",
-    },
     qcsim: {
       name: "QCSim",
       source: "https://github.com/noClaps/qcsim",
@@ -99,6 +95,10 @@ export const directory: Directory = {
     },
   },
   "archived-projects": {
+    highlight: {
+      name: "Highlight",
+      source: "https://github.com/noClaps/highlight",
+    },
     passgen: {
       name: "passgen",
       source: "https://github.com/noClaps/passgen",
