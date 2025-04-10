@@ -11,19 +11,19 @@
           "type": "string",
           "description": "The text color of the syntax type"
         },
-        "font_weight": {
+        "fontWeight": {
           "type": "integer",
           "minimum": 1,
           "exclusiveMaximum": 1000,
           "description": "The font weight for the syntax type. This should be a number between 1 and 1000"
         },
-        "font_style": {
+        "fontStyle": {
           "type": "string",
           "enum": ["italic", "normal", "oblique"],
           "default": "normal",
           "description": "The font style for the syntax type"
         },
-        "background_color": {
+        "backgroundColor": {
           "type": "string",
           "description": "The background color for the syntax type"
         }
@@ -31,15 +31,15 @@
     }
   },
   "properties": {
-    "bg": {
+    "backgroundColor": {
       "type": "string",
       "description": "The default background color. This is the background color of the code block"
     },
-    "fg": {
+    "color": {
       "type": "string",
       "description": "The default text color. This is set on the parent `<pre>` element and is used if no valid highlight is present, or no highlight color is provided for that syntax."
     },
-    "line_numbers": {
+    "lineNumbers": {
       "type": "object",
       "description": "An object to configure line numbers. If this is left out, no line numbers will be present",
       "required": ["color"],
@@ -48,7 +48,7 @@
           "type": "string",
           "description": "The color of the line numbers"
         },
-        "right_space": {
+        "rightSpace": {
           "type": "number",
           "description": "The number of spaces between the line numbers and the code, in units of `ch`",
           "default": 1
