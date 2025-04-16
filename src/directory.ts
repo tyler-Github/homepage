@@ -38,7 +38,7 @@ export const directory: Directory = {
     camphouse: {
       name: "Camphouse",
       link: "https://camphouse.org",
-      source: "https://git.vmgware.dev/vmgware/camphouse",
+      source: "https://gitlab.com/camphouse",
     },
     "discuit-docs": {
       name: "Discuit API Documentation",
