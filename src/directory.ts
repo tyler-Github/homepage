@@ -47,7 +47,7 @@ export const directory: Directory = {
     },
     qcsim: {
       name: "QCSim",
-      source: "https://github.com/noClaps/qcsim",
+      source: "https://github.com/qcsim/qcsim",
     },
     blog: {
       name: "The Blog of Random",
