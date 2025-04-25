@@ -5,9 +5,10 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "build": "bun build src/index.html --outdir dist --minify && cp -r public/* dist/",
-    "dev": "bun src/index.html",
-    "preview": "bun dist/index.html"
+    "build": "bunx vite build src/ --outDir ../dist --emptyOutDir && cp -r public/* dist/",
+    "fonts": "curl -L 'https://github.com/githubnext/monaspace/raw/refs/heads/main/fonts/webfonts/MonaspaceNeonVarVF%5Bwght,wdth,slnt%5D.woff2' -o src/MonaspaceNeon.woff2",
+    "dev": "bunx vite src/",
+    "preview": "bunx vite dist/"
   },
   "type": "module"
 }
