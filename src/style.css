@@ -1,6 +1,19 @@
+@font-face {
+    font-family: MonaspaceNeon;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1;
+    src: url("./MonaspaceNeon.woff2");
+}
+
 /* Root */
 :root {
-    font-family: ui-monospace, monospace;
+    --mono: MonaspaceNeon, ui-monospace, monospace;
+
+    font-family: var(--mono);
     background-color: black;
     color: white;
 }
@@ -18,7 +31,7 @@ main {
 
 input {
     border: none;
-    font-family: ui-monospace, monospace;
+    font-family: var(--mono);
     font-size: 1rem;
     background-color: black;
     color: white;
@@ -37,7 +50,7 @@ pre {
     margin: 0;
     line-height: 2;
     font-size: 1rem;
-    font-family: ui-monospace, monospace;
+    font-family: var(--mono);
     white-space: break-spaces;
 }
 
