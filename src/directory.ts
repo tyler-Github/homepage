@@ -72,6 +72,7 @@ export const directory: Directory = {
     },
     color: {
       name: "color",
+      link: "https://color.zerolimits.dev",
       source: "https://github.com/noClaps/color",
     },
     life: {
