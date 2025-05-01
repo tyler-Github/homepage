@@ -80,10 +80,6 @@ export const directory: Directory = {
       link: "https://life.zerolimits.dev",
       source: "https://github.com/noClaps/game-of-life",
     },
-    lsdeps: {
-      name: "lsdeps",
-      source: "https://github.com/noClaps/lsdeps",
-    },
     news: {
       name: "News",
       link: "https://news.zerolimits.dev",
@@ -94,6 +90,10 @@ export const directory: Directory = {
     highlight: {
       name: "Highlight",
       source: "https://github.com/noClaps/highlight",
+    },
+    lsdeps: {
+      name: "lsdeps",
+      source: "https://github.com/noClaps/lsdeps",
     },
     passgen: {
       name: "passgen",
