@@ -1,13 +1,13 @@
+type Project = {
+  name: string;
+  link?: string;
+  source: string;
+};
+
 interface Directory {
-  projects: Record<string, { name: string; link?: string; source: string }>;
-  "side-projects": Record<
-    string,
-    { name: string; link?: string; source: string }
-  >;
-  "archived-projects": Record<
-    string,
-    { name: string; link?: string; source: string }
-  >;
+  projects: Record<string, Project>;
+  "side-projects": Record<string, Project>;
+  "archived-projects": Record<string, Project>;
   contact: Record<string, { name: string; link: string; linkName: string }>;
 }
 
