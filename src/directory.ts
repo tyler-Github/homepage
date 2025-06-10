@@ -93,10 +93,6 @@ export const directory: Directory = {
       link: "https://news.zerolimits.dev",
       source: "https://github.com/noClaps/news",
     },
-    "zed-min": {
-      name: "ZedMin",
-      source: "https://github.com/noClaps/zed-minimal",
-    },
   },
   "archived-projects": {
     highlight: {
