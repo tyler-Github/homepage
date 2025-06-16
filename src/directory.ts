@@ -84,6 +84,10 @@ export const directory: Directory = {
       link: "https://life.zerolimits.dev",
       source: "https://github.com/noClaps/game-of-life",
     },
+    dot: {
+      name: "dot",
+      source: "https://github.com/noClaps/dot",
+    },
     lsdeps: {
       name: "lsdeps",
       source: "https://github.com/noClaps/lsdeps",
