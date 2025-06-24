@@ -40,11 +40,6 @@ export const directory: Directory = {
       link: "https://camphouse.org",
       source: "https://gitlab.com/camphouse",
     },
-    "discuit-docs": {
-      name: "Discuit API Documentation",
-      link: "https://docs.discuit.net",
-      source: "https://github.com/discuitnet/docs",
-    },
     qcsim: {
       name: "QCSim",
       source: "https://github.com/qcsim/qcsim",
@@ -98,6 +93,11 @@ export const directory: Directory = {
     },
   },
   "archived-projects": {
+    "discuit-docs": {
+      name: "Discuit API Documentation",
+      link: "https://docs.discuit.net",
+      source: "https://github.com/discuitnet/docs",
+    },
     highlight: {
       name: "Highlight",
       source: "https://github.com/noClaps/highlight",
