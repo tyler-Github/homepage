@@ -26,17 +26,17 @@ export const directory: Directory = {
   },
   projects: {
     screenshot: {
-      name: "Screenshots",
+      name: "Web Screenshots",
       link: "https://screenshot.xnoid.studio/",
     },
     portal: {
-      name: "Portal",
+      name: "Xnoid Portal",
       link: "https://portal.xnoid.studio/",
     },
   },
   "side-projects": {
     archive: {
-      name: "Archive",
+      name: "Discuit Archive",
       link: "https://archive.xnoid.studio/",
     },
   },
