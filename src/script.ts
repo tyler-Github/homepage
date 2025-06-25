@@ -98,7 +98,7 @@ input.addEventListener("keyup", (e) => {
           returnVal = Commands.fallback(cmd);
       }
 
-      log.innerHTML += `user@zerolimits.dev / > ${input.value}\n`;
+      log.innerHTML += `user@xnoid.studio / > ${input.value}\n`;
       log.innerHTML += !returnVal ? returnVal : `${returnVal}\n`;
 
       scrollTo(0, document.body.scrollHeight);
